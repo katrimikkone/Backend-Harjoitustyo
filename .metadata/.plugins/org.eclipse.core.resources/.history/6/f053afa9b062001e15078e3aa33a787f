@@ -1,0 +1,7 @@
+package harjoitustyo.harjoitustyo.domain;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface CategoryRepository extends CrudRepository<Category, Long> {
+	List<Sushi> findByName(String name);
+}

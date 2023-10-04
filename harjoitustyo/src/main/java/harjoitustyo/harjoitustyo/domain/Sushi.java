@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Sushi {
@@ -14,6 +16,26 @@ public class Sushi {
 	private String description;
 	private double price;
 	
+	@ManyToOne
+	@JoinColumn(name="categoryid")
+	private Category category;
+	
+
+	public Sushi() {
+
+	}
+	
+	
+	
+	public Sushi(Category category, String name, String description, double price ) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.price = price;
+		this.category = category;
+	}
+
+
 
 	public Sushi(String name, String description, double price) {
 		super();
@@ -22,10 +44,15 @@ public class Sushi {
 		this.price = price;
 	}
 
-	public Sushi() {
+	
 
+	public Sushi(String name, String description, double price, Category category) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.price = price;
+		this.category = category;
 	}
-
 
 	public Long getId() {
 		return id;
@@ -64,6 +91,14 @@ public class Sushi {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 	
 	

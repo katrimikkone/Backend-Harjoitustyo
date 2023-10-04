@@ -14,6 +14,7 @@
 				<th>Name</th>
 				<th>Description</th>
 				<th>Price</th>
+				<th>Category</th>
 			</tr>
 		</thead>	
 		<tbody>
@@ -21,6 +22,7 @@
 				<td th:text="${sushi.name}"></td>
 				<td th:text="${sushi.description}"></td>
 				<td th:text="${sushi.price}"></td>
+				<td th:text="${sushi?.category?.name}"></td> 
 				<td><a th:href="@{/edit/{id}(id=${sushi.id})}" class="btn btn-gray">Edit</a></td>
 				<td><a th:href="@{/delete/{id}(id=${sushi.id})}" class="btn btn-danger">Delete</a></td>
 		
