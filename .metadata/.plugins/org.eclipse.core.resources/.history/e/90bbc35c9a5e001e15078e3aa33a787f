@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Edit Sushi</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Edit Sushi</h1>
+	<table>
+		<div>
+	 		<form th:object="${sushi}" th:action="@{/edit/{id}(id=${sushi.id})}" method="post">
+				 <label for="name">Name</label>
+				 <input type="text" id="name" th:field="*{name}" />
+				 <label for="description">Description</label>
+				 <input type="text" th:field="*{description}" />
+				 <label for="price">Price</label>
+				 <input type="text" th:field="*{price}" />
+				 <input type="submit" value="Edit" ></input>
+	 		</form>
+		</div>
+	</table>
+<a href="/booklist" class="btn btn-primary" >Back to listing</a>
+
+</body>
+</html>

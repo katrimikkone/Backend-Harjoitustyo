@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Sushilist</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+</head>
+	<body>
+		<h1>Our Sushi</h1>
+		
+		<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Price</th>
+			</tr>
+		</thead>	
+		<tbody>
+			<tr th:each="sushi: ${sushis}">
+				<td th:text="${sushi.name}"></td>
+				<td th:text="${sushi.description}"></td>
+				<td th:text="${sushi.price}"></td>
+				<td><a th:href="@{/delete/{id}(id=${sushi.id})}" class="btn btn-danger">Delete</a></td>
+			</tr>
+		</tbody>
+			
+		</table>
+		<a href="/add" class="btn btn-primary">Add Sushi</a>
+	</body>
+</html>

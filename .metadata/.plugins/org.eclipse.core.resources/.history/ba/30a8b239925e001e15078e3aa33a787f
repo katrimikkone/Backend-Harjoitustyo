@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Add sushi</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+</head>
+	<body>
+	<table>
+		<h1>Add Sushi</h1>
+		<div>
+			<form th:ohject="${sushi}" th:action="@{save}" action="#" method="post">
+			
+				<input type="submit" value="Add" />
+			</form>
+		</div>
+	</table>
+		
+		<a href="/sushilist" class="btn btn-primary">Back to the listing</a>
+	</body>
+</html>

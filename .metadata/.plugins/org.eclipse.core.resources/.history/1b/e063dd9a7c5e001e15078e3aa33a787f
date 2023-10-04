@@ -1,0 +1,6 @@
+package harjoitustyo.harjoitustyo.web;
+
+@RestController
+public class RestController {
+
+}

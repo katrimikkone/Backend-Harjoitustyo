@@ -1,0 +1,27 @@
+package harjoitustyo.harjoitustyo.web;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import harjoitustyo.harjoitustyo.domain.Sushi;
+import harjoitustyo.harjoitustyo.domain.SushiRepository;
+
+@RestController
+public class SushiRestController {
+	@Autowired
+	SushiRepository repository;
+	
+	@GetMapping("/sushis")
+	public Iterable<Sushi> getSushis() {
+		return repository.findAll();
+	}
+	
+	@GetMapping("/sushi/{id}")
+	public Optional <Sushi> findSushiRest(@PathVariable("id") Long id) {
+		return repository.findById(id);
+	}
+}

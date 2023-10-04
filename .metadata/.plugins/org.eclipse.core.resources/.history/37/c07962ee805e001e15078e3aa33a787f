@@ -1,0 +1,15 @@
+package harjoitustyo.harjoitustyo.web;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class SushiRestController {
+	
+	@GetMapping("/index")
+	@ResponseBody
+	public String showMainPage() {
+		return "Tämä on pääsivu";
+	}
+}

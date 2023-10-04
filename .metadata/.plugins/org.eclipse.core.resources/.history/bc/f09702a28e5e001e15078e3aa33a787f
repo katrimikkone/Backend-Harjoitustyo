@@ -1,0 +1,25 @@
+package harjoitustyo.harjoitustyo.web;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.ui.Model;
+import harjoitustyo.harjoitustyo.domain.SushiRepository;
+
+@Controller
+public class SushiController {
+	
+	@Autowired
+	private SushiRepository repository;
+	
+	@RequestMapping(value="/sushilist")
+	public String showSushis(Model model) {
+		model.addAttribute("sushis", repository.findAll());
+		return "sushilist.html";
+	}
+
+}
