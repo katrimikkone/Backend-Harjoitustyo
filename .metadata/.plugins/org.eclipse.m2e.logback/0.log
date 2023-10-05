@@ -713,3 +713,5 @@
 2023-10-05 17:28:24,674 [Worker-272: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2023-10-05 17:28:24,680 [Worker-272: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\katri\HH2\Back end\harjoitustyo\harjoitustyo\src\test\resources
 2023-10-05 17:29:55,655 [Worker-282: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-10-05 17:29:55,668 [Worker-282: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 5 resources from src\main\resources to target\classes
+2023-10-05 17:29:55,674 [Worker-282: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\katri\HH2\Back end\harjoitustyo\harjoitustyo\src\test\resources
