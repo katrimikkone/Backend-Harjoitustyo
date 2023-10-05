@@ -1,0 +1,5 @@
+package harjoitustyo.harjoitustyo;
+
+public class WebSecurityConfig {
+
+}

@@ -1,0 +1,5 @@
+package harjoitustyo.harjoitustyo.web;
+
+public class UserDetailServiceImpl implements UserDetailsService {
+
+}

@@ -1,6 +1,7 @@
 package harjoitustyo.harjoitustyo.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,6 +21,11 @@ public class SushiController {
 	
 	@Autowired
 	private CategoryRepository crepository;
+	
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
 	
 	@GetMapping(value="/sushilist")
 	public String showSushis(Model model) {
@@ -57,11 +63,11 @@ public class SushiController {
 	@PostMapping(value="/update/{id}")
 	public String updateSushi(Sushi sushi) {
 		repository.save(sushi);
-		//crepository.save(book);
 		return "redirect:/sushilist";
 	}
 	
 	@GetMapping("/delete/{id}")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public String deleteSushi(@PathVariable("id") Long id) {
 		repository.deleteById(id);
 		return "redirect:../sushilist";

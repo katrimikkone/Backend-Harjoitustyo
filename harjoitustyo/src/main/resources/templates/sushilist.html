@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
 <head>
 	<title>Sushilist</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -8,6 +9,11 @@
 	<body>
 		<h1>Our Sushi</h1>
 		
+		<div style="padding:20px 0">
+			<form th:action="@{logout}" method="post">
+				<input type="submit" value="Log out" class="btn btn-danger"/>
+			</form>
+		</div>
 		<table class="table table-striped">
 		<thead>
 			<tr>
@@ -15,6 +21,7 @@
 				<th>Description</th>
 				<th>Price</th>
 				<th>Category</th>
+				<th sec:authorize="hasRole('ADMIN')"></th>
 			</tr>
 		</thead>	
 		<tbody>
@@ -23,13 +30,13 @@
 				<td th:text="${sushi.description}"></td>
 				<td th:text="${sushi.price}"></td>
 				<td th:text="${sushi?.category?.name}"></td> 
-				<td><a th:href="@{/edit/{id}(id=${sushi.id})}" class="btn btn-gray">Edit</a></td>
-				<td><a th:href="@{/delete/{id}(id=${sushi.id})}" class="btn btn-danger">Delete</a></td>
+				<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${sushi.id})}" class="btn btn-gray">Edit</a></td>
+				<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${sushi.id})}" class="btn btn-danger">Delete</a></td>
 		
 			</tr>
 		</tbody>
 			
 		</table>
-		<a href="/add" class="btn btn-primary">Add Sushi</a>
+		<a sec:authorize="hasAuthority('ADMIN')" href="/add" class="btn btn-primary">Add Sushi</a>
 	</body>
 </html>
